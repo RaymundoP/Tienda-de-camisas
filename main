@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class TiendaCamisas {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int cantidadCamisas;
+        double costoTotal = 0;
+        double descuento = 0;
+        
+        System.out.println("Bienvenido a la tienda de camisas");
+        System.out.println("================================");
+        System.out.println("1 - Camisa de manga corta (190$)");
+        System.out.println("2 - Camisa casual de manga larga (230$)");
+        System.out.println("3 - Camisa formal de manga larga (310$)");
+        System.out.print("Ingrese la cantidad de camisas que desea comprar: ");
+        
+        cantidadCamisas = input.nextInt();
+        
+        if (cantidadCamisas >= 1 && cantidadCamisas <= 2) {
+            costoTotal = cantidadCamisas * 190;
+        } else if (cantidadCamisas >= 3 && cantidadCamisas <= 5) {
+            costoTotal = cantidadCamisas * 190 * 0.95;
+            descuento = cantidadCamisas * 190 * 0.05;
+        } else if (cantidadCamisas > 5) {
+            costoTotal = cantidadCamisas * 190 * 0.92;
+            descuento = cantidadCamisas * 190 * 0.08;
+        } else {
+            System.out.println("Cantidad de camisas inválida. Intente de nuevo.");
+            System.exit(0);
+        }
+        
+        System.out.println("================================");
+        System.out.printf("Costo total: %.2f$\n", costoTotal);
+        System.out.printf("Descuento: %.2f$\n", descuento);
+        System.out.printf("Total a pagar: %.2f$\n", costoTotal - descuento);
+    }
+}
